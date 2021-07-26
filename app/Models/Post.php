@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Carbon\Carbon;
@@ -29,7 +31,7 @@ class Post extends Model
     }
     //Try to do scope but not working :((
     //In artisan Tinker giveme an error, to investigate later
-    public function scopeBestActivityLastWeek(Builder $query) : Builder
+    public function scopeBestActivityByLastWeek(Builder $query) : Builder
     {
         return $query->whereDate('created_at', '>', Carbon::now()->addDays(-7));
     }
